@@ -9,20 +9,20 @@ function GetLocation(ped)
     return zoneName, streetName, crossingRoadName
 end
 
+function PrintInChat(message)
+    TriggerEvent('chat:addMessage', {
+        args = { message }
+    })
+end
+
 RegisterCommand('location', function()
     local ped = PlayerPedId()
     local zone, street, crossingRoad = GetLocation(ped)
-    TriggerEvent('chat:addMessage', {
-        args = { 'District ', zone }
-    })
+    PrintInChat("Dristrict : " .. zone)
     if(street ~= '') then
-        TriggerEvent('chat:addMessage', {
-            args = { 'Rue ', street }
-        })
+        PrintInChat("Street : " .. street)
     end
     if(crossingRoad ~= '') then
-        TriggerEvent('chat:addMessage', {
-            args = { 'Route ', crossingRoad }
-        })
+        PrintInChat("Road : " .. crossingRoad)
     end
 end)
