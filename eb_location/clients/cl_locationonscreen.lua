@@ -19,8 +19,6 @@ RegisterCommand('locationonscreen', function()
     while activate do
         Wait(1)
         local zone, street, crossingRoad = GetLocation(ped)
-        print(zone, street, crossingRoad)
-
         Draw2DText(0.015, 0.71, zone, 0.50)
         Draw2DText(0.015, 0.735, street, 0.50)
         Draw2DText(0.015, 0.76, crossingRoad, 0.50)
